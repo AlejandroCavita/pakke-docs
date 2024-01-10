@@ -1,0 +1,2293 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>Documentación del API Pakke</title>
+    <link rel="shortcut icon" type="image/x-icon" href="http://www.pakke.mx/img/favicon.ico" />
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[&quot;shell&quot;]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="tocify-wrapper">
+      <br />
+      <br />
+      <center>
+      <img src="images/PakkeLogo.svg" height="40" alt="Pakkelogo" />
+      </center>
+        <div class="lang-selector">
+              <a href="#" data-language-name="shell">cURL</a>
+        </div>
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Realiza una búsqueda">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc">
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://seller.pakke.mx'>Plataforma Pakke</a></li>
+            <li><a target="_blank" href='http://help.pakke.mx/'>Ayuda</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id="introducci-n">Introducción</h1>
+
+<aside class="notice">
+Antes de comenzar a consumir la API de Pakke, es necesario tener una cuenta de usuario. Si aún no tienes la tuya, puedes obtenerla <a href="https://seller.pakke.mx">aquí</a>.
+</aside>
+
+<p>La API de Pakke está diseña sobre REST, por lo tanto, encontrarás que las URL de los servicios están orientadas a recursos generales e individuales, además de usar códigos de respuesta HTTP estandarizados para indicar posibles errores en las peticiones.</p>
+
+<p>El formato de todas las respuestas de la API, incluyendo errores, es JSON. Además, ten en cuenta que <strong>todas las propiedades</strong> de los parámetros de entrada <strong>son case-sensitive</strong>. </p>
+
+<p>Por el momento, la API REST de Pakke no tiene dispobnible un ambiente de pruebas, solo se puede accesar a ella en ambiente <strong>productivo</strong>.</p>
+
+<h2 id="api-endpoints">API Endpoints</h2>
+
+<p>Las URLs de los recursos de la API Pakke están formadas por la <strong>URI base</strong> más el nombre de la entidad y la operación. En otros casos, además, se requerirá especificar el identificador individual del objeto que se quiera consultar en un formato tipo <strong>entidad/operacion/{OBJECT_ID}</strong>.</p>
+
+<p>La URI base que debe ser utilizada en todos los servicios expuestos de la API de Pakke es <strong>https://seller.pakke.mx/api/v1/</strong>. </p>
+
+<p>Por ejemplo, si queremos obtener los servicios de envío disponibles por courier, la URL que deberíamos utilizar sería el URI base más el recurso &lsquo;CourierServices&rsquo;:</p>
+
+<table style="width:100%;">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: white; color: black;">https://seller.pakke.mx/api/v1/CourierServices</th>
+        </tr>
+    </tbody>
+</table>
+
+<p>Por otro lado, si estamos tratando de obtener la información de una guía en particular, la URL que se debería utilizar sería la URI base más el recurso y el identificador individual de la guía:</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: white; color: black;">https://seller.pakke.mx/api/v1/Shipments/{SHIPMENT_ID}</th>
+        </tr>
+    </tbody>
+</table>
+
+<p>Todas las peticiones requieren que se envíen las cabeceras HTTP adecuadas, <strong>el token de autenticación</strong> y el resto de los parámetros que cada recurso requiera en formato de objeto JSON.</p>
+
+<h2 id="autenticaci-n">Autenticación</h2>
+
+<blockquote>
+<p>Ejemplo de petición con autorización de llamadas de la API con la cabecera Authorization</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/CourierServices
+</code></pre>
+<p>A excepción de los recursos públicos, <strong>todos</strong> los endpoints de la API Pakke requieren de una llave de API (o token de autenticación) que identifique la cuenta de usuario que se usará para realizar las operaciones. El token de autenticación tiene que enviarse como parte de la petición HTTP como valor de la cabecera <strong>&lsquo;Authorization&rsquo;</strong>.</p>
+
+<p>Existen 2 tipos de llaves de API o tokens de autenticación:</p>
+
+<ol>
+<li>Token temporal</li>
+<li>API Key.</li>
+</ol>
+
+<p>Ambos difieren entre sí por el periodo de tiempo en el que el token es vigente: Los tokens temporales tienen un periodo de vigencia corto y las API Keys se pueden utilizar indefinidamente (al menos mientras no se solicite el cambio de la llave o se haga un reseteo de las mismas).</p>
+
+<p>La decisión de usar uno u otro tipo de autenticación dependerá de las necesidades de cada integración.</p>
+
+<h3 id="autenticaci-n-temporal">Autenticación temporal</h3>
+
+<blockquote>
+<p>Ejemplo de petición:</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -d <span class="s1">'{"email": "usuario@email.com", "password": "demo.1234" }'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Users/login
+</code></pre><pre class="highlight shell tab-shell"><code>Ejemplo de respuesta:
+
+<span class="o">{</span>
+    <span class="s2">"token"</span>: <span class="s2">"cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK"</span>,
+    <span class="s2">"userId"</span>: <span class="s2">"338fere-n32wdqk4k3l-4we7-a6e49-nkte2naak4"</span>,
+    <span class="s2">"ttl"</span>: 1209600,
+    <span class="s2">"created"</span>: <span class="s2">"2018-12-07T19:31:53.554Z"</span>,
+    <span class="s2">"roles"</span>: <span class="o">[</span><span class="s2">"END_USER"</span><span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Para obtener un token temporal se necesita utilizar el endpoint <strong>/Users/login</strong>. Este servicio requiere que se envíen por POST las mismas credenciales de acceso que se utilizan para iniciar sesión en Pakke. El token generado como respuesta solo será válido por un tiempo limitado y una vez caducado ya no podrá utilizarse. Si después de eso necesitas volver a utilizar algún otro endpoint será necesario que vuelvas a generar otro token temporal válid utilizando el mismo procedimiento.</p>
+
+<p>Para determinar la vigencia del token temporal puedes utilizar la información de los campos de respuesta &lsquo;ttl&rsquo; y &lsquo;created&rsquo;.</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">POST</th>
+            <th style="background: white; color: black;">/Users/login</th>
+        </tr>
+        <tr>
+            <td colspan="2">No requiere autenticación</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Correo electrónico de la cuenta de usuario</td>
+        </tr>
+        <tr>
+            <td>Password</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Contraseña de acceso de la cuenta de usuario</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Propiedad</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>userId</td>
+            <td>String</td>
+            <td>Identificador de la cuenta de usuario</td>
+        </tr>
+        <tr>
+            <td>token</td>
+            <td>String</td>
+            <td>Token temporal</td>
+        </tr>
+        <tr>
+            <td>ttl</td>
+            <td>Number</td>
+            <td>Número de segundos de vigencia del token temporal</td>
+        </tr>
+        <tr>
+            <td>created</td>
+            <td>String</td>
+            <td>Fecha (en formato UTC) en la que se generó el token temporal </td>
+        </tr>
+        <tr>
+            <td>roles</td>
+            <td>Array</td>
+            <td>Listado de roles aplicables a la cuenta de usuario</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="autenticaci-n-por-api-key">Autenticación por API Key</h3>
+
+<p>Para generar un API Key sin vigencia definida solo hay que iniciar sesión en Pakke, entrar a la página <strong>&lsquo;Mi Perfil&rsquo;</strong> ir a la sección <strong>&lsquo;API Key&rsquo;</strong> y después dar clic en el botón <strong>&lsquo;Regenerar&rsquo;</strong>:</p>
+
+<p><img src="images/API-KEY.png"></p>
+
+<p>Este proceso lo puedes hacer las veces que sea necesario, cuando quieras cambiar tu API Key. Por favor toma en cuenta que al regenerar tu llave de API también tendrás que cambiarla en tu integración.</p>
+
+<h2 id="errores">Errores</h2>
+
+<blockquote>
+<p>Ejemplo de petición errónea (sin token de autenticación) al servicio de servicios de courier</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/CourierServices
+</code></pre>
+<blockquote>
+<p>Respuesta de error</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"error"</span>: <span class="o">{</span>
+        <span class="s2">"statusCode"</span>: 401,
+        <span class="s2">"name"</span>: <span class="s2">"Error"</span>,
+        <span class="s2">"message"</span>: <span class="s2">"Authorization Required"</span>,
+        <span class="s2">"code"</span>: <span class="s2">"AUTHORIZATION_REQUIRED"</span>
+    <span class="o">}</span>
+<span class="o">}</span>
+</code></pre>
+<p>En caso de que haya algún problema con las peticiones hechas al API de Pakke, ésta devolverá objetos de JSON cuando exista un error.</p>
+
+<h4 id="respuesta-de-error">Respuesta de error</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>statusCode</td>
+            <td>String</td>
+            <td>Código​ ​HTTP​ ​de​ ​la​ ​causa​ ​del​ ​error</td>
+        </tr>
+        <tr>
+            <td>message</td>
+            <td>String</td>
+            <td>Tipificación​ ​de​ ​la​ ​excepción​ ​(uso​ ​interno)</td>
+        </tr>
+        <tr>
+            <td>Code</td>
+            <td>String</td>
+            <td>Código interno de la ​excepción​ </td>
+        </tr>
+        <tr>
+            <td>details</td>
+            <td>String</td>
+            <td>Mensajes ​de​ error con ​la​s ​excepciones</td>
+        </tr>
+     </tbody>
+</table>
+
+<h1 id="couriers-y-servicios">Couriers y Servicios</h1>
+
+<p>Dentro de este apartado se incluyen los endpoints para consultar los
+couriers/carriers disponibles en Pakke, sus servicios y los
+equivalentes en la nomenclatura del API.</p>
+
+<h2 id="couriers">Couriers</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Couriers
+</code></pre>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+<span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"CourierCode"</span>: <span class="s2">"99M"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"99M"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"VolumetricWeightFactor"</span>: 5000,
+        <span class="s2">"HasPickupActive"</span>: <span class="nb">false</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"CourierCode"</span>: <span class="s2">"STF"</span>,
+        <span class="s2">"Name"</span>: <span class="s2">"Estafeta"</span>,
+        <span class="s2">"Status"</span>: 1,
+        <span class="s2">"VolumetricWeightFactor"</span>: 5000,
+        <span class="s2">"HasPickupActive"</span>: <span class="nb">true</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Para obtener el listado de couriers activos en la plataforma, se debe utilizar el siguiente endpoint:</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">GET</th>
+            <th style="background: white; color: black;">/Couriers</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<p>Un Array de objetos con información del courier</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Propiedad</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Identificador corto del courier</td>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>String</td>
+            <td>Nombre completo del courier</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>Number</td>
+            <td>Bandera para indicar si el courier está o no activo</td>
+        </tr>
+        <tr>
+            <td>VolumetricWeightFactor</td>
+            <td>Number</td>
+            <td>Factor para calcular el peso volumétrico de los paquetes</td>
+        </tr>
+        <tr>
+            <td>HasPickupActive</td>
+            <td>Boolean</td>
+            <td>Bandera para indicar si el courier permite o no recolecciones</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="servicios">Servicios</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/CourierServices
+</code></pre>
+<blockquote>
+<p>Respuesta ​-​ ​HTTP Success​ ​200</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"CourierServiceId"</span>: <span class="s2">"bicycle"</span>,
+        <span class="s2">"CourierCode"</span>: <span class="s2">"99M"</span>,
+        <span class="s2">"Description"</span>: <span class="s2">"Mismo dia bicycle"</span>,
+        <span class="s2">"DeliveryDays"</span>: <span class="s2">"1 día hab."</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"CourierServiceId"</span>: <span class="s2">"bicycle99"</span>,
+        <span class="s2">"CourierCode"</span>: <span class="s2">"99M"</span>,
+        <span class="s2">"Description"</span>: <span class="s2">"Express bicycle"</span>,
+        <span class="s2">"DeliveryDays"</span>: <span class="s2">"1 día hab."</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"CourierServiceId"</span>: <span class="s2">"ESTAFETA_DIA_SIGUIENTE"</span>,
+        <span class="s2">"CourierCode"</span>: <span class="s2">"STF"</span>,
+        <span class="s2">"Description"</span>: <span class="s2">"Dia Siguiente"</span>,
+        <span class="s2">"DeliveryDays"</span>: <span class="s2">"1 día hab."</span>
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"CourierServiceId"</span>: <span class="s2">"ESTAFETA_TERRESTRE_CONSUMO"</span>,
+        <span class="s2">"CourierCode"</span>: <span class="s2">"STF"</span>,
+        <span class="s2">"Description"</span>: <span class="s2">"Terrestre Consumo"</span>,
+        <span class="s2">"DeliveryDays"</span>: <span class="s2">"2 - 5 dias hab."</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<p>Para obtener el listado de los servicios homologados en la plataforma, se debe utilizar el siguiente endpoint:</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">GET</th>
+            <th style="background: white; color: black;">/CourierServices</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<p>Un Array de objetos con información del courier</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Propiedad</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>CourierServiceId</td>
+            <td>String</td>
+            <td>Identificador de servicio de courier</td>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Identificador corto del courier</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>String</td>
+            <td>Descripción larga del servicio de courier</td>
+        </tr>
+        <tr>
+            <td>DeliveryDays</td>
+            <td>String</td>
+            <td>Descripción de la fecha de entrega esperada</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 id="env-os">Envíos</h1>
+
+<p>Dentro de esta sección se listan los endpoints para crear y consultar envíos, obtener su detalle y hacer búsquedas.</p>
+
+<h2 id="cotizaci-n-de-gu-as">Cotización de guías</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    -d <span class="s1">'{
+        "ZipCodeFrom": "64000",
+        "ZipCodeTo": "06000",
+        "Parcel": {
+            "Weight": 1,
+            "Width": 10,
+            "Height": 10,
+            "Length": 10
+        },
+        "CouponCode": null,
+        "InsuredAmount": 1000
+    }'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Shipments
+</code></pre>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"Pakke"</span>: <span class="o">[</span>
+        <span class="o">{</span>
+            <span class="s2">"CourierCode"</span>: <span class="s2">"STF"</span>,
+            <span class="s2">"CourierName"</span>: <span class="s2">"Estafeta"</span>,
+            <span class="s2">"CourierServiceId"</span>: <span class="s2">"ESTAFETA_TERRESTRE_CONSUMO"</span>,
+            <span class="s2">"CourierServiceName"</span>: <span class="s2">"Terrestre Consumo"</span>,
+            <span class="s2">"DeliveryDays"</span>: <span class="s2">"2-5 días hab."</span>,
+            <span class="s2">"CouponCode"</span>: null,
+            <span class="s2">"DiscountAmount"</span>: 0,
+            <span class="s2">"TotalPrice"</span>: 85.83,
+            <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-07-04"</span>,
+            <span class="s2">"BestOption"</span>: <span class="nb">true</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"CourierCode"</span>: <span class="s2">"STF"</span>,
+            <span class="s2">"CourierName"</span>: <span class="s2">"Estafeta"</span>,
+            <span class="s2">"CourierServiceId"</span>: <span class="s2">"ESTAFETA_DIA_SIGUIENTE"</span>,
+            <span class="s2">"CourierServiceName"</span>: <span class="s2">"Dia Siguiente"</span>,
+            <span class="s2">"DeliveryDays"</span>: <span class="s2">"1 día hab."</span>,
+            <span class="s2">"CouponCode"</span>: null,
+            <span class="s2">"DiscountAmount"</span>: 0,
+            <span class="s2">"TotalPrice"</span>: 117.67,
+            <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-07-04"</span>,
+            <span class="s2">"BestOption"</span>: <span class="nb">false</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"CourierCode"</span>: <span class="s2">"FDX"</span>,
+            <span class="s2">"CourierName"</span>: <span class="s2">"FedEx"</span>,
+            <span class="s2">"CourierServiceId"</span>: <span class="s2">"FEDEX_EXPRESS_SAVER"</span>,
+            <span class="s2">"CourierServiceName"</span>: <span class="s2">"Express Saver"</span>,
+            <span class="s2">"DeliveryDays"</span>: <span class="s2">"3 días hab."</span>,
+            <span class="s2">"CouponCode"</span>: null,
+            <span class="s2">"DiscountAmount"</span>: 0,
+            <span class="s2">"TotalPrice"</span>: 134.75,
+            <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-07-04"</span>,
+            <span class="s2">"BestOption"</span>: <span class="nb">false</span>
+        <span class="o">}</span>,
+        <span class="o">{</span>
+            <span class="s2">"CourierCode"</span>: <span class="s2">"FDX"</span>,
+            <span class="s2">"CourierName"</span>: <span class="s2">"FedEx"</span>,
+            <span class="s2">"CourierServiceId"</span>: <span class="s2">"FEDEX_STANDARD_OVERNIGHT"</span>,
+            <span class="s2">"CourierServiceName"</span>: <span class="s2">"Standard Overnight"</span>,
+            <span class="s2">"DeliveryDays"</span>: <span class="s2">"1 día hab."</span>,
+            <span class="s2">"CouponCode"</span>: null,
+            <span class="s2">"DiscountAmount"</span>: 0,
+            <span class="s2">"TotalPrice"</span>: 184.51,
+            <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-07-04"</span>,
+            <span class="s2">"BestOption"</span>: <span class="nb">false</span>
+        <span class="o">}</span>
+    <span class="o">]</span>
+<span class="o">}</span>
+</code></pre>
+<p>Con este endpoint podrás obtener la cotización del envío de los couriers/carriers disponibles en la plataforma:</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">POST</th>
+            <th style="background: white; color: black;">/Shipments/rates</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ZipCodeFrom</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Código postal origen del paquete</td>
+        </tr>
+        <tr>
+            <td>ZipCodeTo</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Código postal destino del paquete</td>
+        </tr>
+        <tr>
+            <td>Parcel</td>
+            <td>ShipmentParcel</td>
+            <td>Si</td>
+            <td>Información​ ​del dimensiones ​y peso del paquete</td>
+        </tr>
+        <tr>
+            <td>CouponCode</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Código de cupón que se aplicaría a la generación de la guía</td>
+        </tr>
+         <tr>
+            <td>InsuredAmount</td>
+            <td>Number</td>
+            <td>No</td>
+            <td>Valor declarado del paquete que servirá para determinar el costo del seguro de entrega</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Pakke</td>
+            <td>Array<ServiceItems></td>
+            <td>Lista​ ​de​ ​servicios​ ​ofrecidos​ ​por​ ​Pakke</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="shipmentparcel">ShipmentParcel</h3>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo </th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Identificador corto del courier</td>
+        </tr>
+        <tr>
+            <td>CourierName</td>
+            <td>String</td>
+            <td>Nombre del courier</td>
+        </tr>
+        <tr>
+            <td>CourierServiceId</td>
+            <td>String</td>
+            <td>Identificador ​de​ ​servicio​ del courier</td>
+        </tr>
+        <tr>
+            <td>CourierServiceName</td>
+            <td>String</td>
+            <td>Nombre del ​servicio​</td>
+        </tr>
+        <tr>
+            <td>DeliveryDays</td>
+            <td>String</td>
+            <td>Descripción de los días de entrega</td>
+        </tr>
+        <tr>
+            <td>CouponCode</td>
+            <td>String</td>
+            <td>Código del cupón aplicado al costo</td>
+        </tr>
+        <tr>
+            <td>DiscountAmount</td>
+            <td>Number</td>
+            <td>Total del descuento aplicado al costo</td>
+        </tr>
+        <tr>
+            <td>TotalPrice</td>
+            <td>Number</td>
+            <td>Total del costo (ya con descuento aplicado)</td>
+        </tr>
+        <tr>
+            <td>BestOption</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si el costo es el mejor (el menos costoso)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="shipmentparcel">ShipmentParcel</h3>
+
+<p>Este objeto se utiliza para especificar las dimensiones y peso del paquete.</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Longitud del paquete expresada en cms.</td>
+        </tr>
+        <tr>
+            <td>Width</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Ancho del paquete expresado en cms.</td>
+        </tr>
+         <tr>
+            <td>Height</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Alto del paquete expresado en cms.</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Peso simple del paquete expresado en cms.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="creaci-n-de-gu-as">Creación de guías</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X POST <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    -d <span class="s1">'{
+            "CourierCode": "FDX",
+            "CourierServiceId": "ECO",
+            "ResellerReference": "TCPIP-0817-23",
+            "Content": "Producto",
+            "AddressFrom": {
+                "ZipCode": "87120",
+                "State": "MX-TAM",
+                "City": "Victoria",
+                "Neighborhood": "Hacienda del Santuario",
+                "Address1": "3301 Gamboa Ferrocarril",
+                "Address2": "Apt. 149",
+                "Residential": false
+        },
+            "AddressTo": {
+                "ZipCode": "34040",
+                "State": "MX-DUR",
+                "City": "Durango",
+                "Neighborhood": "Villa de Guadalupe",
+                "Address1": "48787 Alejandro Arrabal",
+                "Address2": "Apt. 845",
+                "Residential": true
+        },
+            "Parcel": {
+                "Length": 73,
+                "Width": 77,
+                "Height": 33,
+                "Weight": 2
+        },
+            "Sender": {
+                "Name": "Hugo Domínguez",
+                "Phone1": "5627-452-122",
+                "Phone2": "5621-911-389",
+                "Email": "Matas_Roybal@corpfolder.com"
+        },
+            "Recipient": {
+                "Name": "Benjamín Grijalva",
+                "CompanyName": "Espinoza - Colunga",
+                "Phone1": "5124-468-864",
+                "Email": "Antonio.Sanabria54@nearbpo.com"
+        }
+    }'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Shipments
+</code></pre>
+<blockquote>
+<p>Respuesta</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"ShipmentId"</span>: <span class="s2">"efa1fab0-9934-11e9-829b-51a5cf8a966e"</span>,
+    <span class="s2">"ResellerId"</span>: <span class="s2">"f9de4742-29fc-4c18-a66e-f56b8e82cd09"</span>,
+    <span class="s2">"OwnerId"</span>: <span class="s2">"c8d1f584-ae79-4fb5-b8a4-d68bfca3c2e3"</span>,
+    <span class="s2">"OrderId"</span>: null,
+    <span class="s2">"CreatedAt"</span>: <span class="s2">"2019-06-27T18:40:26.069-05:00"</span>,
+    <span class="s2">"ExpiresAt"</span>: <span class="s2">"2019-07-02T18:40:26.069-05:00"</span>,
+    <span class="s2">"CourierName"</span>: <span class="s2">"FedEx"</span>,
+    <span class="s2">"CourierCode"</span>: <span class="s2">"FDX"</span>,
+    <span class="s2">"CourierServiceId"</span>: <span class="s2">"FEDEX_STANDARD_OVERNIGHT"</span>,
+    <span class="s2">"CourierService"</span>: <span class="s2">"Standard Overnight"</span>,
+    <span class="s2">"ResellerReference"</span>: <span class="s2">""</span>,
+    <span class="s2">"HasExceptions"</span>: <span class="nb">false</span>,
+    <span class="s2">"HasChangeZipCode"</span>: <span class="nb">false</span>,
+    <span class="s2">"SendRecipientNotifications"</span>: <span class="nb">false</span>,
+    <span class="s2">"InsuredAmount"</span>: 0,
+    <span class="s2">"Parcel"</span>: <span class="o">{</span>
+        <span class="s2">"Length"</span>: 73,
+        <span class="s2">"Width"</span>: 77,
+        <span class="s2">"Height"</span>: 33,
+        <span class="s2">"Weight"</span>: 2
+    <span class="o">}</span>,
+    <span class="s2">"QuotedWeight"</span>: 5,
+    <span class="s2">"RealWeight"</span>: 5,
+    <span class="s2">"RealOverWeight"</span>: 0,
+    <span class="s2">"CoveredWeight"</span>: 5,
+    <span class="s2">"OverWeight"</span>: 0,
+    <span class="s2">"OverWeightPrice"</span>: 15,
+    <span class="s2">"CoveredAmount"</span>: 225.43,
+    <span class="s2">"ExtrasAmount"</span>: 0,
+    <span class="s2">"QuotedAmount"</span>: 225.43,
+    <span class="s2">"DiscountAmount"</span>: 0,
+    <span class="s2">"CouponCode"</span>: null,
+    <span class="s2">"InsuranceAmount"</span>: 0,
+    <span class="s2">"InsurancePercentFactor"</span>: 1.2,
+    <span class="s2">"TotalAmount"</span>: 225.43,
+    <span class="s2">"OriginalWeight"</span>: 5,
+    <span class="s2">"OriginalWidth"</span>: 30,
+    <span class="s2">"OriginalLength"</span>: 40,
+    <span class="s2">"OriginalHeight"</span>: 20,
+    <span class="s2">"OriginalVolumetricWeight"</span>: 5,
+    <span class="s2">"AddressFrom"</span>: <span class="o">{</span>
+        <span class="s2">"ZipCode"</span>: <span class="s2">"87120"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"MX-TAM"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"Victoria"</span>,
+        <span class="s2">"Neighborhood"</span>: <span class="s2">"Hacienda del Santuario"</span>,
+        <span class="s2">"Address1"</span>: <span class="s2">"3301 Gamboa Ferrocarril"</span>,
+        <span class="s2">"Address2"</span>: <span class="s2">"Apt. 149"</span>,
+        <span class="s2">"Residential"</span>: <span class="nb">false</span>
+    <span class="o">}</span>,
+    <span class="s2">"AddressTo"</span>: <span class="o">{</span>
+        <span class="s2">"ZipCode"</span>: <span class="s2">"34040"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"MX-DUR"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"Durango"</span>,
+        <span class="s2">"Neighborhood"</span>: <span class="s2">"Villa de Guadalupe"</span>,
+        <span class="s2">"Address1"</span>: <span class="s2">"48787 Alejandro Arrabal"</span>,
+        <span class="s2">"Address2"</span>: <span class="s2">"Apt. 845"</span>,
+        <span class="s2">"Residential"</span>: <span class="nb">true</span>
+    <span class="o">}</span>,
+    <span class="s2">"Sender"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Hugo Domínguez"</span>,
+        <span class="s2">"Phone1"</span>: <span class="s2">"5627-452-122"</span>,
+        <span class="s2">"Phone2"</span>: <span class="s2">"5621-911-389"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"Matas_Roybal@corpfolder.com"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Recipient"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Benjamín Grijalva"</span>,
+        <span class="s2">"CompanyName"</span>: <span class="s2">"Espinoza - Colunga"</span>,
+        <span class="s2">"Phone1"</span>: <span class="s2">"5124-468-864"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"Antonio.Sanabria54@nearbpo.com"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Owner"</span>: <span class="s2">"pospago@pakke.mx"</span>,
+    <span class="s2">"DaysInTransit"</span>: null,
+    <span class="s2">"EnableRefund"</span>: 1,
+    <span class="s2">"ChangeZipCode"</span>: null,
+    <span class="s2">"Content"</span>: <span class="s2">"Accesorios"</span>,
+    <span class="s2">"transactions"</span>: <span class="o">[]</span>,
+    <span class="s2">"Credentials"</span>: null,
+    <span class="s2">"TrackingNumberReplaced"</span>: null,
+    <span class="s2">"Folio"</span>: null,
+    <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-06-28"</span>,
+    <span class="s2">"TrackingNumber"</span>: <span class="s2">"794622745362"</span>,
+    <span class="s2">"WaybillNumber"</span>: null,
+    <span class="s2">"Label"</span>: <span class="s2">"JVBERi0xLjQKMSA[...]FydHhyZWYKNzIyMQolJUVPRgo="</span>,
+    <span class="s2">"Status"</span>: <span class="s2">"SUCCESS"</span>,
+    <span class="s2">"TrackingStatus"</span>: <span class="s2">"WAITING"</span>
+<span class="o">}</span>
+</code></pre>
+<p>Este endpoint realiza el trabajo de validar los datos de entrada y enviar
+dichos datos al courier seleccionado para generar la etiqueta de la guía:</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">POST</th>
+            <th style="background: white; color: black;">/Shipments</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Identificador corto de courier</td>
+        </tr>
+        <tr>
+            <td>CourierServiceId</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Identificador de servicio de courier</td>
+        </tr>
+         <tr>
+            <td>ResellerReference</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Referencia​ ​personalizada del paquete</td>
+        </tr>
+        <tr>
+            <td>Parcel</td>
+            <td>ShipmentParcel</td>
+            <td>Si</td>
+            <td>Información​ ​del dimensiones ​y peso del paquete</td>
+        </tr>
+        <tr>
+            <td>AddressFrom</td>
+            <td>ShipmentAddress</td>
+            <td>Si</td>
+            <td>Dirección​ ​de​ ​Envío</td>
+        </tr>
+         <tr>
+            <td>AddressTo</td>
+            <td>ShipmentAddress</td>
+            <td>Si</td>
+            <td>Dirección​ ​de​ ​Entrega</td>
+        </tr>
+        <tr>
+            <td>Sender</td>
+            <td>ShipmentContact</td>
+            <td>Si</td>
+            <td>Información del remitente</td>
+        </tr>
+         <tr>
+            <td>Recipient</td>
+            <td>ShipmentContact</td>
+            <td>Si</td>
+            <td>Información del destinatario</td>
+        </tr>
+    </tbody>
+</table>
+
+<aside class="notice">
+Nota: Si CourierCode y CourierServiceId no son especificados, la API
+seleccionará la mejor opción disponible para el envío (la menos costosa).
+</aside>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ShipmentId</td>
+            <td>String</td>
+            <td>Identificador​ ​único​ ​del​ ​envío</td>
+        </tr>
+         <tr>
+            <td>ResellerId</td>
+            <td>String</td>
+            <td>Identificador​ ​de la cuenta de reseller que creó la guía</td>
+        </tr>
+        <tr>
+            <td>OwnerId</td>
+            <td>String</td>
+            <td>Identificador​ ​del​ ​reseller</td>
+        </tr>
+        <tr>
+            <td>CreatedAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ ​la​ ​creación​ ​del​ ​envío</td>
+        </tr>
+        <tr>
+            <td>ExpiresAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ expiración de la etiqueta de envío</td>
+        </tr>
+        <tr>
+            <td>CourierName</td>
+            <td>String</td>
+            <td>Nombre del courier</td>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Identificador corto del courier</td>
+        </tr>
+        <tr>
+            <td>CourierServiceId</td>
+            <td>String</td>
+            <td>Identificador ​de​ ​servicio​ del courier</td>
+        </tr>
+        <tr>
+            <td>CourierService</td>
+            <td>String</td>
+            <td>Nombre del ​servicio​</td>
+        </tr>
+        <tr>
+            <td>ResellerReference</td>
+            <td>String</td>
+            <td>Referencia​ ​personalizada del paquete</td>
+        </tr>
+        <tr>
+            <td>HasExceptions</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si el envío tiene excepciones de entrega</td>
+        </tr>
+        <tr>
+            <td>HasChangeZipCode</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si se detectó si el envío cambió de códigos postales de entrega</td>
+        </tr>
+        <tr>
+            <td>SendRecipientNotifications</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si la guía tiene activado el envío de notificaciones</td>
+        </tr>
+        <tr>
+            <td>InsuredAmount</td>
+            <td>Number</td>
+            <td>Monto del seguro de envío</td>
+        </tr>
+         <tr>
+            <td>Parcel</td>
+            <td>ShipmentParcel</td>
+            <td>Información​ ​del​ ​Paquete</td>
+        </tr>
+        <tr>
+            <td>AddressFrom</td>
+            <td>ShipmentAddress</td>
+            <td>Dirección​ ​de​ ​Envío</td>
+        </tr>
+        <tr>
+            <td>AddressTo</td>
+            <td>ShipmentAddress</td>
+            <td>Dirección​ ​de​ ​Entrega</td>
+        </tr>
+        <tr>
+            <td>Sender</td>
+            <td>ShipmentContact</td>
+            <td>Información del remitente</td>
+        </tr>
+        <tr>
+            <td>Recipient</td>
+            <td>ShipmentContact</td>
+            <td>Información del destinatario</td>
+        </tr>
+        <tr>
+            <td>QuotedAmount</td>
+            <td>Number</td>
+            <td>Precio cotizado</td>
+        </tr>
+        <tr>
+            <td>DiscountAmount</td>
+            <td>Number</td>
+            <td>Descuento</td>
+        </tr>
+        <tr>
+            <td>InsuranceAmount</td>
+            <td>Number</td>
+            <td>Costo del seguro</td>
+        </tr>
+        <tr>
+            <td>TotalAmount</td>
+            <td>Number</td>
+            <td>Costo total del paquete</td>
+        </tr>
+        <tr>
+            <td>OverWeightPrice</td>
+            <td>Number</td>
+            <td>Precio por kilo de sobrepeso</td>
+        </tr>
+        <tr>
+            <td>OriginalWeight</td>
+            <td>Number</td>
+            <td>Peso simple del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalWidth</td>
+            <td>Number</td>
+            <td>Ancho del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalLength</td>
+            <td>Number</td>
+            <td>Longitud del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalHeight</td>
+            <td>Number</td>
+            <td>Altura del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalVolumetricWeight</td>
+            <td>Number</td>
+            <td>Peso volumétrico del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>RealWeight</td>
+            <td>Number</td>
+            <td>Peso real del paquete</td>
+        </tr>
+        <tr>
+            <td>RealOverWeight</td>
+            <td>Number</td>
+            <td>Sobrepeso real del paquete</td>
+        </tr>
+        <tr>
+            <td>Owner</td>
+            <td>String</td>
+            <td>Correo electrónico del reseller</td>
+        </tr>
+        <tr>
+            <td>DaysInTransit</td>
+            <td>Number</td>
+            <td>Días en tránsito del paquete</td>
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td>String</td>
+            <td>Contenido del paquete</td>
+        </tr>
+        <tr>
+            <td>transactions</td>
+            <td>Array</td>
+            <td>Array con las transacciones generadas por la guía</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>String</td>
+            <td>Estatus de la guía:
+                <ul>
+                    <li>SUCCESS​ - Envío generado</li>
+                    <li>REFUNDED ​-​ ​Envío reembolsado</li>
+                    <li>REFUNDPENDING -​ Envío con reembolso pendiente</li>
+                    <li>REFUNDFAILED - Envío con reembolso fallido</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>TrackingNumber</td>
+            <td>String</td>
+            <td>Número​ ​de​ ​guía​ ​del​ ​courier</td>
+        </tr>
+        <tr>
+            <td>TrackingStatus</td>
+            <td>String</td>
+            <td>Estatus del rastreo:
+                <ul>
+                    <li>WAITING ​-​ ​Guía generada y esperando recolección</li>
+                    <li>IN_TRANSIT ​-​ ​Paquete en tránsito</li>
+                    <li>ON_DELIVERY​-​ Paquete en proceso de entrega</li>
+                    <li>DELIVERED​ - Paquete entregado</li>
+                    <li>RETURNED - Paquete devuelto</li>
+                    <li>CANCELLED - ​​Guía cancelada o expirada</li>
+                    <li>EXCEPTION - Paquete con ​errores de entrega</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Label</td>
+            <td>String</td>
+            <td>Etiqueta de la guía de envío PDF​ ​en​ formato ​base64</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="shipmentparcel">ShipmentParcel</h3>
+
+<p>Este objeto se utiliza para especificar las dimensiones y peso del paquete.</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Length</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Longitud del paquete expresada en cms.</td>
+        </tr>
+        <tr>
+            <td>Width</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Ancho del paquete expresado en cms.</td>
+        </tr>
+         <tr>
+            <td>Height</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Alto del paquete expresado en cms.</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>Number</td>
+            <td>Si</td>
+            <td>Peso simple del paquete expresado en cms.</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="shipmentaddress">ShipmentAddress</h3>
+
+<p>Este objeto representa una la dirección de envío o de entrega.</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ZipCode</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Código​ ​postal</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Entidad​ ​Federativa​ ​(texto​ ​libre)</td>
+        </tr>
+         <tr>
+            <td>City</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Municipio/Ciudad</td>
+        </tr>
+        <tr>
+            <td>Neighborhood</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Colonia</td>
+        </tr>
+          <tr>
+            <td>Address1</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Calle y número</td>
+        </tr>
+        <tr>
+            <td>Address2</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Datos adicionales</td>
+        </tr>
+        <tr>
+            <td>Residential</td>
+            <td>Boolean</td>
+            <td>No</td>
+            <td>Indica​ ​si​ ​la​ ​dirección​ ​necesita​ ​un​ ​trato especial​ ​por​ ​el​ ​courier​ ​(solo​ ​tiene​ ​efecto en​ ​la​ ​entrega)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="shipmentcontact">ShipmentContact</h3>
+
+<p>Este objeto se usa para pare los datos de contacto del remitente o destinatario.</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Name</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Nombre​ ​del​ ​contacto</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Correo​ ​electrónico</td>
+        </tr>
+         <tr>
+            <td>Phone1</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Teléfono​ ​de contacto 1</td>
+        </tr>
+        <tr>
+            <td>Phone2</td>
+            <td>String</td>
+            <td>No</td>
+            <td>Teléfono​ ​de contacto 2</td>
+        </tr>
+        <tr>
+            <td>CompanyName</td>
+            <td>String</td>
+            <td>Si, solo​  para ​el​ ​destinatario</td>
+            <td>Nombre de la empresa</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="consulta-de-gu-as">Consulta​ ​de​ guías</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Shipments/<span class="o">{</span>SHIPMENT_ID<span class="o">}</span>/
+</code></pre>
+<blockquote>
+<p>Respuesta​ ​-​ ​Success​ ​200</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="o">{</span>
+    <span class="s2">"ShipmentId"</span>: <span class="s2">"efa1fab0-9934-11e9-829b-51a5cf8a966e"</span>,
+    <span class="s2">"ResellerId"</span>: <span class="s2">"f9de4742-29fc-4c18-a66e-f56b8e82cd09"</span>,
+    <span class="s2">"OwnerId"</span>: <span class="s2">"c8d1f584-ae79-4fb5-b8a4-d68bfca3c2e3"</span>,
+    <span class="s2">"OrderId"</span>: null,
+    <span class="s2">"CreatedAt"</span>: <span class="s2">"2019-06-27T18:40:26.069-05:00"</span>,
+    <span class="s2">"ExpiresAt"</span>: <span class="s2">"2019-07-02T18:40:26.069-05:00"</span>,
+    <span class="s2">"TransitAt"</span>: <span class="s2">"2019-07-02T18:40:26.069-05:00"</span>,
+    <span class="s2">"DeliveredAt"</span>: <span class="s2">"2019-07-02T18:40:26.069-05:00"</span>,
+    <span class="s2">"CourierName"</span>: <span class="s2">"FedEx"</span>,
+    <span class="s2">"CourierCode"</span>: <span class="s2">"FDX"</span>,
+    <span class="s2">"CourierServiceId"</span>: <span class="s2">"FEDEX_STANDARD_OVERNIGHT"</span>,
+    <span class="s2">"CourierService"</span>: <span class="s2">"Standard Overnight"</span>,
+    <span class="s2">"ResellerReference"</span>: <span class="s2">""</span>,
+    <span class="s2">"HasExceptions"</span>: <span class="nb">false</span>,
+    <span class="s2">"HasLost"</span>: <span class="nb">false</span>,
+    <span class="s2">"HasChangeZipCode"</span>: <span class="nb">false</span>,
+    <span class="s2">"SendRecipientNotifications"</span>: <span class="nb">false</span>,
+    <span class="s2">"InsuredAmount"</span>: 0,
+    <span class="s2">"Parcel"</span>: <span class="o">{</span>
+        <span class="s2">"Length"</span>: 73,
+        <span class="s2">"Width"</span>: 77,
+        <span class="s2">"Height"</span>: 33,
+        <span class="s2">"Weight"</span>: 2
+    <span class="o">}</span>,
+    <span class="s2">"QuotedWeight"</span>: 5,
+    <span class="s2">"RealWeight"</span>: 5,
+    <span class="s2">"RealOverWeight"</span>: 0,
+    <span class="s2">"CoveredWeight"</span>: 5,
+    <span class="s2">"OverWeight"</span>: 0,
+    <span class="s2">"OverWeightPrice"</span>: 15,
+    <span class="s2">"CoveredAmount"</span>: 225.43,
+    <span class="s2">"ExtrasAmount"</span>: 0,
+    <span class="s2">"QuotedAmount"</span>: 225.43,
+    <span class="s2">"DiscountAmount"</span>: 0,
+    <span class="s2">"CouponCode"</span>: null,
+    <span class="s2">"InsuranceAmount"</span>: 0,
+    <span class="s2">"InsurancePercentFactor"</span>: 1.2,
+    <span class="s2">"TotalAmount"</span>: 225.43,
+    <span class="s2">"OriginalWeight"</span>: 5,
+    <span class="s2">"OriginalWidth"</span>: 30,
+    <span class="s2">"OriginalLength"</span>: 40,
+    <span class="s2">"OriginalHeight"</span>: 20,
+    <span class="s2">"OriginalVolumetricWeight"</span>: 5,
+    <span class="s2">"CourierWeight"</span>: 5,
+    <span class="s2">"CourierWidth"</span>: 30,
+    <span class="s2">"CourierLength"</span>: 40,
+    <span class="s2">"CourierHeight"</span>: 20,
+    <span class="s2">"CourierVolumetricWeight"</span>: 5,
+    <span class="s2">"AddressFrom"</span>: <span class="o">{</span>
+        <span class="s2">"ZipCode"</span>: <span class="s2">"87120"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"MX-TAM"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"Victoria"</span>,
+        <span class="s2">"Neighborhood"</span>: <span class="s2">"Hacienda del Santuario"</span>,
+        <span class="s2">"Address1"</span>: <span class="s2">"3301 Gamboa Ferrocarril"</span>,
+        <span class="s2">"Address2"</span>: <span class="s2">"Apt. 149"</span>,
+        <span class="s2">"Residential"</span>: <span class="nb">false</span>
+    <span class="o">}</span>,
+    <span class="s2">"AddressTo"</span>: <span class="o">{</span>
+        <span class="s2">"ZipCode"</span>: <span class="s2">"34040"</span>,
+        <span class="s2">"State"</span>: <span class="s2">"MX-DUR"</span>,
+        <span class="s2">"City"</span>: <span class="s2">"Durango"</span>,
+        <span class="s2">"Neighborhood"</span>: <span class="s2">"Villa de Guadalupe"</span>,
+        <span class="s2">"Address1"</span>: <span class="s2">"48787 Alejandro Arrabal"</span>,
+        <span class="s2">"Address2"</span>: <span class="s2">"Apt. 845"</span>,
+        <span class="s2">"Residential"</span>: <span class="nb">true</span>
+    <span class="o">}</span>,
+    <span class="s2">"Sender"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Hugo Domínguez"</span>,
+        <span class="s2">"Phone1"</span>: <span class="s2">"5627-452-122"</span>,
+        <span class="s2">"Phone2"</span>: <span class="s2">"5621-911-389"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"Matas_Roybal@corpfolder.com"</span>
+    <span class="o">}</span>,
+    <span class="s2">"Recipient"</span>: <span class="o">{</span>
+        <span class="s2">"Name"</span>: <span class="s2">"Benjamín Grijalva"</span>,
+        <span class="s2">"CompanyName"</span>: <span class="s2">"Espinoza - Colunga"</span>,
+        <span class="s2">"Phone1"</span>: <span class="s2">"5124-468-864"</span>,
+        <span class="s2">"Email"</span>: <span class="s2">"Antonio.Sanabria54@nearbpo.com"</span>
+    <span class="o">}</span>,
+    <span class="s2">"ReceivedAt"</span>: null,
+    <span class="s2">"ReceivedAt"</span>: null,
+    <span class="s2">"Owner"</span>: <span class="s2">"pospago@pakke.mx"</span>,
+    <span class="s2">"DaysInTransit"</span>: null,
+    <span class="s2">"EnableRefund"</span>: 1,
+    <span class="s2">"ChangeZipCode"</span>: null,
+    <span class="s2">"Content"</span>: <span class="s2">"Accesorios"</span>,
+    <span class="s2">"transactions"</span>: <span class="o">[]</span>,
+    <span class="s2">"Credentials"</span>: null,
+    <span class="s2">"TrackingNumberReplaced"</span>: null,
+    <span class="s2">"Folio"</span>: null,
+    <span class="s2">"EstimatedDeliveryDate"</span>: <span class="s2">"2019-06-28"</span>,
+    <span class="s2">"TrackingNumber"</span>: <span class="s2">"794622745362"</span>,
+    <span class="s2">"WaybillNumber"</span>: null,
+    <span class="s2">"Status"</span>: <span class="s2">"SUCCESS"</span>,
+    <span class="s2">"TrackingStatus"</span>: <span class="s2">"WAITING"</span>
+<span class="o">}</span>
+</code></pre>
+<p>Este endpoint devuelve la información detallada de un envío.</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">GET</th>
+            <th style="background: white; color: black;">/Shipments/{SHIPMENT_ID}/</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ShipmentId</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Identificador​ ​único​ ​del​ ​envío</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ShipmentId</td>
+            <td>String</td>
+            <td>Identificador​ ​único​ ​del​ ​envío</td>
+        </tr>
+         <tr>
+            <td>ResellerId</td>
+            <td>String</td>
+            <td>Identificador​ ​de la cuenta de reseller que creó la guía</td>
+        </tr>
+        <tr>
+            <td>OwnerId</td>
+            <td>String</td>
+            <td>Identificador​ ​del​ ​reseller</td>
+        </tr>
+        <tr>
+            <td>CreatedAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ ​la​ ​creación​ ​del​ ​envío</td>
+        </tr>
+        <tr>
+            <td>ExpiresAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ expiración de la etiqueta de envío</td>
+        </tr>
+        <tr>
+            <td>TransitAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ puesta en tránsito del paquete</td>
+        </tr>
+        <tr>
+            <td>DeliveredAt</td>
+            <td>date</td>
+            <td>Fecha/hora​ ​de​ entrega del paquete</td>
+        </tr>
+        <tr>
+            <td>CourierName</td>
+            <td>String</td>
+            <td>Nombre del courier</td>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Identificador corto del courier</td>
+        </tr>
+        <tr>
+            <td>CourierServiceId</td>
+            <td>String</td>
+            <td>Identificador ​de​ ​servicio​ del courier</td>
+        </tr>
+        <tr>
+            <td>CourierService</td>
+            <td>String</td>
+            <td>Nombre del ​servicio​</td>
+        </tr>
+        <tr>
+            <td>ResellerReference</td>
+            <td>String</td>
+            <td>Referencia​ ​personalizada del paquete</td>
+        </tr>
+        <tr>
+            <td>HasExceptions</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si el envío tiene excepciones de entrega</td>
+        </tr>
+        <tr>
+            <td>HasChangeZipCode</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si se detectó si el envío cambió de códigos postales de entrega</td>
+        </tr>
+        <tr>
+            <td>SendRecipientNotifications</td>
+            <td>Boolean</td>
+            <td>Bandera que indica si la guía tiene activado el envío de notificaciones</td>
+        </tr>
+        <tr>
+            <td>InsuredAmount</td>
+            <td>Number</td>
+            <td>Monto del seguro de envío</td>
+        </tr>
+         <tr>
+            <td>Parcel</td>
+            <td>ShipmentParcel</td>
+            <td>Información​ ​del​ ​Paquete</td>
+        </tr>
+        <tr>
+            <td>AddressFrom</td>
+            <td>ShipmentAddress</td>
+            <td>Dirección​ ​de​ ​Envío</td>
+        </tr>
+        <tr>
+            <td>AddressTo</td>
+            <td>ShipmentAddress</td>
+            <td>Dirección​ ​de​ ​Entrega</td>
+        </tr>
+        <tr>
+            <td>Sender</td>
+            <td>ShipmentContact</td>
+            <td>Información del remitente</td>
+        </tr>
+        <tr>
+            <td>Recipient</td>
+            <td>ShipmentContact</td>
+            <td>Información del destinatario</td>
+        </tr>
+        <tr>
+            <td>QuotedAmount</td>
+            <td>Number</td>
+            <td>Precio cotizado</td>
+        </tr>
+        <tr>
+            <td>DiscountAmount</td>
+            <td>Number</td>
+            <td>Descuento</td>
+        </tr>
+        <tr>
+            <td>InsuranceAmount</td>
+            <td>Number</td>
+            <td>Costo del seguro</td>
+        </tr>
+        <tr>
+            <td>TotalAmount</td>
+            <td>Number</td>
+            <td>Costo total del paquete</td>
+        </tr>
+        <tr>
+            <td>OverWeightPrice</td>
+            <td>Number</td>
+            <td>Precio por kilo de sobrepeso</td>
+        </tr>
+        <tr>
+            <td>OriginalWeight</td>
+            <td>Number</td>
+            <td>Peso simple del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalWidth</td>
+            <td>Number</td>
+            <td>Ancho del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalLength</td>
+            <td>Number</td>
+            <td>Longitud del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalHeight</td>
+            <td>Number</td>
+            <td>Altura del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>OriginalVolumetricWeight</td>
+            <td>Number</td>
+            <td>Peso volumétrico del paquete cotizado</td>
+        </tr>
+        <tr>
+            <td>CourierWeight</td>
+            <td>Number</td>
+            <td>Peso simple del paquete reportado por el courier</td>
+        </tr>
+        <tr>
+            <td>CourierWidth</td>
+            <td>Number</td>
+            <td>Ancho del paquete reportado por el courier</td>
+        </tr>
+        <tr>
+            <td>CourierLength</td>
+            <td>Number</td>
+            <td>Longitud del paquete reportado por el courier</td>
+        </tr>
+        <tr>
+            <td>CourierHeight</td>
+            <td>Number</td>
+            <td>Altura del paquete reportado por el courier</td>
+        </tr>
+        <tr>
+            <td>CourierVolumetricWeight</td>
+            <td>Number</td>
+            <td>Peso volumétrico del paquete reportado por el courier</td>
+        </tr>
+        <tr>
+            <td>RealWeight</td>
+            <td>Number</td>
+            <td>Peso real del paquete</td>
+        </tr>
+        <tr>
+            <td>RealOverWeight</td>
+            <td>Number</td>
+            <td>Sobrepeso real del paquete</td>
+        </tr>
+        <tr>
+            <td>Owner</td>
+            <td>String</td>
+            <td>Correo electrónico del reseller</td>
+        </tr>
+        <tr>
+            <td>DaysInTransit</td>
+            <td>Number</td>
+            <td>Días en tránsito del paquete</td>
+        </tr>
+        <tr>
+            <td>Content</td>
+            <td>String</td>
+            <td>Contenido del paquete</td>
+        </tr>
+        <tr>
+            <td>transactions</td>
+            <td>Array</td>
+            <td>Array con las transacciones generadas por la guía</td>
+        </tr>
+        <tr>
+            <td>Status</td>
+            <td>String</td>
+            <td>Estatus de la guía:
+                <ul>
+                    <li>SUCCESS​ - Envío generado</li>
+                    <li>REFUNDED ​-​ ​Envío reembolsado</li>
+                    <li>REFUNDPENDING -​ Envío con reembolso pendiente</li>
+                    <li>REFUNDFAILED - Envío con reembolso fallido</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>TrackingNumber</td>
+            <td>String</td>
+            <td>Número​ ​de​ ​guía​ ​del​ ​courier</td>
+        </tr>
+        <tr>
+            <td>TrackingStatus</td>
+            <td>String</td>
+            <td>Estatus del rastreo:
+                <ul>
+                    <li>WAITING ​-​ ​Guía generada y esperando recolección</li>
+                    <li>IN_TRANSIT ​-​ ​Paquete en tránsito</li>
+                    <li>ON_DELIVERY​-​ Paquete en proceso de entrega</li>
+                    <li>DELIVERED​ - Paquete entregado</li>
+                    <li>RETURNED - Paquete devuelto</li>
+                    <li>CANCELLED - ​​Guía cancelada o expirada</li>
+                    <li>EXCEPTION - Paquete con ​errores de entrega</li>
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="consulta-de-etiquetas">Consulta de etiquetas</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Shipments/25444660-3fb6-11e9-b3ab-a30edf078497/label
+</code></pre>
+<blockquote>
+<p>Respuesta​ ​-​ ​Success​ ​200</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">{</span>
+    <span class="s2">"data"</span>: <span class="s2">"&lt;pdf_base64&gt;"</span>,
+    <span class="s2">"TrackingNumber"</span>: <span class="s2">"794610703145"</span>
+    <span class="s2">"WaybillNumber"</span>: null
+<span class="o">}</span>
+</code></pre>
+<p>Este endpoint sirve para obtener la etiqueta de un envío en particular.</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">GET</th>
+            <th style="background: white; color: black;">/Shipments/{SHIPMENT_ID}/label</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ShipmentId</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Identificador​ ​único​ ​del​ ​envío</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>data</td>
+            <td>String</td>
+            <td>PDF​ ​en​ ​base64</td>
+        </tr>
+        <tr>
+            <td>TrackingNumber</td>
+            <td>String</td>
+            <td>Número​ ​de​ ​guía​ ​del​ ​courier</td>
+        </tr>
+        <tr>
+            <td>WaybillNumber</td>
+            <td>String</td>
+            <td>Número​ ​de​ ​guía​ ​largo del​ ​courier (aplica solo para algunos couriers)</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 id="consulta-de-historial">Consulta de historial​</h2>
+
+<blockquote>
+<p>Ejemplo de petición</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code>curl -X GET <span class="se">\</span>
+    -H <span class="s1">'Content-Type: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Accept: application/json'</span> <span class="se">\</span>
+    -H <span class="s1">'Authorization: cHZHeERWFDFQWE434325FFF5DDG768D4B33MwTT4oFpQnyYwm00SxECK'</span> <span class="se">\</span>
+    https://seller.pakke.mx/api/v1/Shipments/<span class="o">{</span>SHIPMENT_ID<span class="o">}</span>/history
+</code></pre>
+<blockquote>
+<p>Respuesta ​-​ ​Success​ ​200</p>
+</blockquote>
+<pre class="highlight shell tab-shell"><code><span class="o">[</span>
+    <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2019-01-03T14:23:01.000-06:00"</span>,
+        <span class="s2">"Details"</span>: <span class="s2">"Envío entregado - Firmado por USUARIO"</span>,
+        <span class="s2">"Location"</span>: null
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2019-01-03T10:05:00.000-06:00"</span>,
+        <span class="s2">"Details"</span>: <span class="s2">"Envío en ruta de entrega."</span>,
+        <span class="s2">"Location"</span>: null
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2018-12-29T10:29:00.000-06:00"</span>,
+        <span class="s2">"Details"</span>: <span class="s2">"Llegado a oficinas de FDX"</span>,
+        <span class="s2">"Location"</span>: null
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2018-12-28T18:23:01.000-06:00"</span>,
+        <span class="s2">"Details"</span>: <span class="s2">"Envío retirado/recolectado."</span>,
+        <span class="s2">"Location"</span>: null
+    <span class="o">}</span>,
+    <span class="o">{</span>
+        <span class="s2">"Date"</span>: <span class="s2">"2018-12-28T17:57:00.000-06:00"</span>,
+        <span class="s2">"Details"</span>: <span class="s2">"Retiro programado"</span>,
+        <span class="s2">"Location"</span>: <span class="o">{</span>
+            <span class="s2">"ZipCode"</span>: <span class="s2">"07800"</span>,
+            <span class="s2">"State"</span>: <span class="s2">"MX-CMX"</span>,
+            <span class="s2">"City"</span>: <span class="s2">"Del. Gustavo A. Madero"</span>,
+            <span class="s2">"Coordinates"</span>: <span class="o">{</span>
+                    <span class="s2">"lat"</span>: 19.4795678,
+                    <span class="s2">"lng"</span>: -99.1418031
+        <span class="o">}</span>
+    <span class="o">}</span>
+<span class="o">]</span>
+</code></pre>
+<p>Este endpoint regresa el histórico de los movimientos realizados desde el API, además de los movimientos que realice el courier.</p>
+
+<h4 id="endpoint">Endpoint</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #ff4d55; color: white;">GET</th>
+            <th style="background: white; color: black;">/Shipments/{SHIPMENT_ID}/history</th>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ShipmentId</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Identificador​ ​único​ ​del​ ​envío</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="respuesta">Respuesta</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>-</td>
+            <td>Array<HistoryEvent></td>
+            <td>Arreglo con eventos del historial</td>
+        </tr>
+    </tbody>
+</table>
+
+<h4 id="par-metros">Parámetros</h4>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Requerido</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>CourierCode</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Código​ ​del​ ​Courier/Carrier</td>
+        </tr>
+        <tr>
+            <td>TrackingNumber</td>
+            <td>String</td>
+            <td>Si</td>
+            <td>Número​ ​de​ ​guía​ ​del​ ​courier</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="historyevent">HistoryEvent</h3>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo</th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>Fecha</td>
+            <td>Fecha en la que se generó el evento</td>
+        </tr>
+         <tr>
+            <td>Details</td>
+            <td>String</td>
+            <td>Deescripción del evento</td>
+        </tr>
+        <tr>
+            <td>Location</td>
+            <td>EventLocationInfo</td>
+            <td>Objeto con información del evento</td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 id="eventlocationinfo">EventLocationInfo</h3>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Campo </th>
+            <th style="background: #e8e8e8; color: black;">Tipo</th>
+            <th style="background: #e8e8e8; color: black;">Descripción</th>
+        </tr>
+        <tr>
+            <td>ZipCode</td>
+            <td>String</td>
+            <td>Código postal donde se generó el evento</td>
+        </tr>
+        <tr>
+            <td>State</td>
+            <td>String</td>
+            <td>Estado de la República donde se generó el evento</td>
+        </tr>
+        <tr>
+            <td>City</td>
+            <td>String</td>
+            <td>Ciudad de la República donde se generó el evento</td>
+        </tr>
+        <tr>
+            <td>Coordinates</td>
+            <td>Objeto</td>
+            <td>Longitud y latitud donde se generó el evento</td>
+        </tr>
+    </tbody>
+</table>
+
+<h1 id="ap-ndice-s">Apéndice​s</h1>
+
+<h2 id="a-entidades-federativas">​A​ ​-​ ​Entidades​ ​Federativas</h2>
+
+<p>Para los códigos de los estados/subdivisiones, se pueden utilizar los
+valores del estándar ISO 3166-2:MX. A continuación se muestra el listado:</p>
+
+<table style="width: auto">
+    <tbody style="border: 1px #D9D9D9 solid;">
+        <tr>
+            <th style="background: #e8e8e8; color: black;">Código​ ​ISO</th>
+            <th style="background: #e8e8e8; color: black;">Nombre​ ​del​ ​Estado</th>
+        </tr>
+        <tr>
+            <td>MX-AGU</td>
+            <td>Aguascalientes</td>
+        </tr>
+        <tr>
+            <td>MX-BCN</td>
+            <td>Baja​ ​California</td>
+        </tr>
+        <tr>
+            <td>MX-BCS</td>
+            <td>Baja​ ​California​ ​Sur</td>
+        </tr>
+        <tr>
+            <td>MX-CAM</td>
+            <td>Campeche</td>
+        </tr>
+         <tr>
+            <td>MX-COA</td>
+            <td>Coahuila</td>
+        </tr>
+        <tr>
+            <td>MX-COL</td>
+            <td>Colima</td>
+        </tr>
+        <tr>
+            <td>MX-CHP</td>
+            <td>Chiapas</td>
+        </tr>
+        <tr>
+            <td>MX-CHH</td>
+            <td>Chihuahua</td>
+        </tr>
+        <tr>
+            <td>MX-CMX</td>
+            <td>Ciudad​ ​de​ ​México</td>
+        </tr>
+        <tr>
+            <td>MX-DUR</td>
+            <td>Durango</td>
+        </tr>
+        <tr>
+            <td>MX-GUA</td>
+            <td>Guanajuato</td>
+        </tr>
+        <tr>
+            <td>MX-GRO</td>
+            <td>Guerrero</td>
+        </tr>
+         <tr>
+            <td>MX-HID</td>
+            <td>Hidalgo</td>
+        </tr>
+        <tr>
+            <td>MX-JAL</td>
+            <td>Jalisco</td>
+        </tr>
+        <tr>
+            <td>MX-MEX</td>
+            <td>México</td>
+        </tr>
+        <tr>
+            <td>MX-MIC</td>
+            <td>Michoacán</td>
+        </tr>
+          <tr>
+            <td>MX-MOR</td>
+            <td>Morelos</td>
+        </tr>
+        <tr>
+            <td>MX-NAY</td>
+            <td>Nayarit</td>
+        </tr>
+        <tr>
+            <td>MX-NLE</td>
+            <td>Nuevo​ ​León</td>
+        </tr>
+        <tr>
+            <td>MX-OAX</td>
+            <td>Oaxaca</td>
+        </tr>
+         <tr>
+            <td>MX-PUE</td>
+            <td>Puebla</td>
+        </tr>
+        <tr>
+            <td>MX-QUE</td>
+            <td>Querétaro</td>
+        </tr>
+        <tr>
+            <td>MX-ROO</td>
+            <td>Quintana​ ​Roo</td>
+        </tr>
+        <tr>
+            <td>MX-SLP</td>
+            <td>San​ ​Luis​ ​Potosí</td>
+        </tr>
+        <tr>
+            <td>MX-SIN</td>
+            <td>Sinaloa</td>
+        </tr>
+        <tr>
+            <td>MX-SON</td>
+            <td>Sonora</td>
+        </tr>
+        <tr>
+            <td>MX-TAB</td>
+            <td>Tabasco</td>
+        </tr>
+        <tr>
+            <td>MX-TAM</td>
+            <td>Tamaulipas</td>
+        </tr>
+        <tr>
+            <td>MX-TLA</td>
+            <td>Tlaxcala</td>
+        </tr>
+        <tr>
+            <td>MX-VER</td>
+            <td>Veracruz</td>
+        </tr>
+        <tr>
+            <td>MX-YUC</td>
+            <td>Yucatán</td>
+        </tr>
+        <tr>
+            <td>MX-ZAC</td>
+            <td>Zacatecas</td>
+        </tr>
+    </tbody>
+</table>
+
+      </div>
+      <div class="dark-box">
+          <div class="lang-selector">
+                <a href="#" data-language-name="shell">cURL</a>
+          </div>
+      </div>
+    </div>
+  </body>
+</html>
